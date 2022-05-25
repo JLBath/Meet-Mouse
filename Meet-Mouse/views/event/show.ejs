@@ -1,0 +1,26 @@
+<%- include('../partials/header.ejs')%>
+    <div class = "content">
+       <h3><%= events.title%></h3>
+       <img src="<%= events.image%>" alt="<%= events.image%>" class = "detailsImg" ><br><br>
+       <h4>When: <%= events.date%>, <%= events.startTime%> to <%= events.endTime%> </h4>
+       <h4>Host: <%= events.host.firstName%></h4>     
+       <h4>Where: <%= events.location%></h4>
+      <div id = "events"><%= events.description%></div>
+      <br><br>
+       <%if(user == events.host._id) {%>
+         <form>
+            <button type = "submit" formmethod = "GET" formaction = "/events/<%= events.id%>/edit">Edit</button>
+            <button type = "submit" formmethod = "POST" formaction = "/events/<%= events.id%>?_method=DELETE">Delete</button>
+         </form>
+       <%} else {%>
+         <h4><%=rsvp.length%> RSVPs</h4>
+         <h4>RSVP to event?</h4>
+         <form>
+            <button type = "submit" formmethod = "POST" formaction = "/events/<%= events.id%>/Yes?_method=PUT">Yes</button>
+            <button type = "submit" formmethod = "POST" formaction = "/events/<%= events.id%>/No?_method=PUT">No</button>
+            <button type = "submit" formmethod = "POST" formaction = "/events/<%= events.id%>/Maybe?_method=PUT">Maybe</button>
+         </form>
+       <%}%>
+    
+    </div>
+    <%- include('../partials/footer.ejs')%>

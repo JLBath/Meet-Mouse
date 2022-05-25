@@ -1,0 +1,54 @@
+<%- include("../partials/header.ejs")%>
+<div class = "content">
+    
+    <form method = "POST" action = "/events/<%= event.id%>?_method=PUT">
+            <div class="editConnection form">
+                <div class="title">Edit Connection</div>
+                <div class="input-container ic1">
+                    <input id="title" name = "title" class="input" value = "<%= event.title%>" type="text" placeholder=" " />
+                    <div class="cut cut-short"></div>
+                    <label for="title" class="placeholder">Title</label>
+                </div>
+                <div class="input-container ic2">
+                    <input id="image" name = "image" class="input" value= "<%= event.image%>" type="url" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="image" class="placeholder">Image</label>
+                </div>
+                <div class="input-container ic2">
+                    <input id="location" name = "location" class="input" value= "<%= event.location%>" type="text" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="location" class="placeholder">Location</label>
+                </div>
+                <div class="input-container ic2">
+                    <input id="date" name = "date" class="input" value= "<%= event.date%>" type="date" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="date" class="placeholder">Date</label>
+                </div>
+                <div class="input-container ic2">
+                    <input id="startTime" name = "start" class="input" value= "<%= event.startTime%>" type="time" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="start" class="placeholder">Start</label>
+                </div>
+                <div class="input-container ic2">
+                    <input id="endTime" name = "end" class="input" value= "<%= event.endTime%>" type="time" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="end" class="placeholder">End</label>
+                </div>
+                <div class="input-container ic2">
+                    <input id="description" name = "description" class="input" value= "<%= event.description%>"type="text" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="description" class="placeholder">Description</label>
+                </div>
+                <div class="input-container ic2">
+                    <input id="category" name = "category" class="input" value= "<%= event.category%>" type="text" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="category" class="placeholder">Category</label>
+                </div>
+        
+        
+                <button class="submit">Submit</button>
+            </div>
+    </form>
+
+    </div>
+    <%- include('../partials/footer.ejs')%>

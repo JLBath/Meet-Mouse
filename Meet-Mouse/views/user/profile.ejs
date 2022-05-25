@@ -1,0 +1,49 @@
+
+<%- include('../partials/header.ejs')%>
+<div class = "content">
+    <h1>Welcome, <%=user.firstName%></h1>
+    <%if(events.length) {%>
+       
+        <h3>You have created the following events</h3>
+        <table>
+            <%events.forEach(event => {%>
+                <tr>
+                    <td>
+                        <a href = '/events/<%= event.id%>'><p><%=event.title%></p></a>
+                    </td>
+                    <td class = "butt" >
+                        <form>
+                            <button type = "submit" formmethod = "GET" formaction = "/events/<%= event.id%>/edit">Edit</button>
+                            <button type = "submit" formmethod = "POST" formaction = "/events/<%= event.id%>?_method=DELETE">Delete</button>
+                         </form>
+                    </td>
+                </tr>
+                    <%});%>
+        </table>
+        
+    <%} else {%>
+        <p>You have not created any events</p>
+    <%}%>
+
+    <h3><%=user.firstName %>'s RSVPS</h3>
+    <%if(rsvp.length === 0){ %>
+         <p>You have not RSVPed to any events</p>
+    <%} else {%>
+        <table>
+            <%rsvp.forEach(rsvpList =>{%>
+            <tr>
+                <td><%=rsvpList.eventName%></td>
+                <td><%=rsvpList.eventCategory%></td>
+                <td><%=rsvpList.answer%></td>
+                <td class = "butt">
+                    <form>
+                        <button type = "submit" formmethod = "GET" formaction = "/events/<%= rsvpList.event%>">Update</button>
+                        <button  type = "submit" formmethod = "POST" formaction = "/users/profile/<%= rsvpList.event%>?_method=DELETE">Cancel</button>
+                    </form>
+                </td>
+            </tr>
+            <%})%>
+        </table>
+    <%}%>
+    </div>
+    <%- include('../partials/footer.ejs')%>

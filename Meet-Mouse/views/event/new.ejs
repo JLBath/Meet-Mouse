@@ -1,0 +1,51 @@
+<%- include("../partials/header.ejs")%>
+<div class = "content">
+    <form action = '/events' method = 'POST'>
+        <div class="form">
+            <div class="title">Create Event</div>
+            <div class="input-container ic2">
+                <input id="title" name = "title" class="input" type="text" placeholder=" " required />
+                <div class="cut cut-short"></div>
+                <label for="title" class="placeholder">Title</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="image" name = "image" class="input" type="url" placeholder=" " required />
+                <div class="cut cut-short"></div>
+                <label for="image" class="placeholder">Image URL</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="location" name="location" class="input" type="text" placeholder=" " required/>
+                <div class="cut cut-short"></div>
+                <label for="location" class="placeholder">Location</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="date" name="date" class="input" type="date" placeholder=" " required/>
+                <div class="cut cut-short"></div>
+                <label for="date" class="placeholder">Date</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="startTime" name="startTime" class="input" type="time" required/>
+                <div class="cut cut-short"></div>
+                <label for="startTime" class="placeholder">Start</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="endTime" name ="endTime" class="input" type="time" required/>
+                <div class="cut cut-short"></div>
+                <label for="endTime" class="placeholder">End</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="description" name="description" class="input" type="text" placeholder=" " required/>
+                <div class="cut"></div>
+                <label for="description" class="placeholder">Description</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="category" name = "category" class="input" type="text" placeholder=" " required/>
+                <div class="cut cut-short"></div>
+                <label for="category" class="placeholder">Category</label>
+            </div>
+            <button class="submit">Submit</button>
+        </div>
+    </form>
+
+    </div>
+    <%- include('../partials/footer.ejs')%>

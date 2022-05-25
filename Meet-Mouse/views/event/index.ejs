@@ -1,0 +1,20 @@
+<%- include("../partials/header.ejs")%>
+    <div class="content">
+        <%if(events.length) {%>
+            <h2>Select a connection</h2>
+        
+            <%unique.forEach(category=>{ %>
+                <h3><%= category%></h3>
+                <%events.forEach(event=>{ 
+                    if(event.category == category){ %>
+                        <a href = "/events/<%= event.id%>"><p><%= event.title %></p></a>
+                    <%}
+                    }); 
+                });
+
+            } else { %>
+                <p>There are no connections right now</p>
+            <%}%>
+
+    </div>
+    <%- include("../partials/footer.ejs")%>
